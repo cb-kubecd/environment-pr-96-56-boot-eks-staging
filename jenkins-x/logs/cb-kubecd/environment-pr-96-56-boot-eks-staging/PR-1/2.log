@@ -1,0 +1,34 @@
+
+Showing logs for build [32mcb-kubecd-environment-pr-96-56-4k8sm-2[0m stage [32mfrom-build-pack[0m and container [32mstep-credential-initializer-bdn9v[0m
+{"level":"warn","ts":1575416652.0259438,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/master\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1575416652.0262983,"logger":"fallback-logger","caller":"creds-init/main.go:40","msg":"Credentials initialized."}
+
+Showing logs for build [32mcb-kubecd-environment-pr-96-56-4k8sm-2[0m stage [32mfrom-build-pack[0m and container [32mstep-working-dir-initializer-7m77h[0m
+{"level":"warn","ts":1575416652.3864894,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: open /var/run/ko/HEAD: no such file or directory"}
+{"level":"info","ts":1575416652.387484,"logger":"fallback-logger","caller":"bash/main.go:65","msg":"Successfully executed command \"mkdir -p /workspace/source\""}
+
+Showing logs for build [32mcb-kubecd-environment-pr-96-56-4k8sm-2[0m stage [32mfrom-build-pack[0m and container [32mstep-place-tools[0m
+
+Showing logs for build [32mcb-kubecd-environment-pr-96-56-4k8sm-2[0m stage [32mfrom-build-pack[0m and container [32mstep-git-source-cb-kubecd-environment-pr-96-56-xqt2n[0m
+{"level":"warn","ts":1575416658.4589946,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/master\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1575416658.6494522,"logger":"fallback-logger","caller":"git/git.go:102","msg":"Successfully cloned https://github.com/cb-kubecd/environment-pr-96-56-boot-eks-staging.git @ master in path /workspace/source"}
+
+Showing logs for build [32mcb-kubecd-environment-pr-96-56-4k8sm-2[0m stage [32mfrom-build-pack[0m and container [32mstep-git-merge[0m
+Using SHAs from PULL_REFS=master:c89fb0f60eea9a1fb04b0e08c53a250b2d990cbf,1:031958241e397bc9c0afce6ca82c86f0a18bbc6c
+DEBUG: ran git fetch --unshallow origin 031958241e397bc9c0afce6ca82c86f0a18bbc6c: c89fb0f60eea9a1fb04b0e08c53a250b2d990cbf: in 
+DEBUG: ran git checkout master in 
+DEBUG: ran git reset --hard c89fb0f60eea9a1fb04b0e08c53a250b2d990cbf in 
+DEBUG: ran clean --force -d . in 
+DEBUG: ran git merge 031958241e397bc9c0afce6ca82c86f0a18bbc6c in 
+
+Showing logs for build [32mcb-kubecd-environment-pr-96-56-4k8sm-2[0m stage [32mfrom-build-pack[0m and container [32mstep-build-helm-build[0m
+WARNING: No $CHART_REPOSITORY defined so using the default value of: http://jenkins-x-chartmuseum:8080
+Adding missing Helm repo: storage.googleapis.com https://storage.googleapis.com/chartmuseum.jenkins-x.io
+error: failed to add chart repositories: failed to add the Helm repository with URL 'https://storage.googleapis.com/chartmuseum.jenkins-x.io': reading repo credentials from vault helm/repos: reading the secret "helm/repos" from vault: Error making API request.
+
+URL: GET http://vault-**.52.0.217.77.nip.io/v1/secret/data/helm/repos
+Code: 404. Raw Message:
+
+default backend - 404
+[31m
+Pipeline failed on stage 'from-build-pack' : container 'step-build-helm-build'. The execution of the pipeline has stopped.[0m
